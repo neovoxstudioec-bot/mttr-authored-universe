@@ -33,7 +33,7 @@ export const Route = createFileRoute("/journal/$slug")({
 });
 
 function ArticlePage() {
-  const { article } = Route.useLoaderData();
+  const { article } = Route.useLoaderData() as { article: typeof articles[number] };
   const idx = articles.findIndex((a) => a.slug === article.slug);
   const next = articles[(idx + 1) % articles.length];
 

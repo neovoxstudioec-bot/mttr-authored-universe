@@ -36,7 +36,7 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 function ProjectPage() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: typeof projects[number] };
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
 
